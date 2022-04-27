@@ -3,6 +3,12 @@ exports.nonConstructibleChange = (coins) => {
         throw Error('Imposible to calculate')
     }
 
+    coins.forEach((coin, idx) => {
+        if(typeof coin !== 'number') {
+            throw Error(coin + ' in the index ' + idx + ' is not a number.')
+        }
+    })
+
     coins.sort((a,b) => a - b);
 
     let currentValue = 0;
